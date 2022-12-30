@@ -1,5 +1,14 @@
 type NumberType = i64;
+/*
+    Simple algorithm that using mostly simple integer arithmetic
+    is able to build a table with angle, cosine and sine.
+    Uses the principle of
 
+        x^2 + y^2 = R^2
+    and
+        (a + 1)^2 = a^2 + 2*a + 1
+        (a - 1)^2 = a^2 - 2*a + 1
+*/
 fn main() {
     //let radius: NumberType = (i64::MAX as f64).sqrt() as i64;
     let radius: NumberType = 1000000;
@@ -13,10 +22,16 @@ fn main() {
     
     //println!("{} {} {} {}", x, y, x, y);
     while y < x {
+        //
         // At every iteration y always increase one single unit.
+        // (a + 1)^2 = a^2 + 2*a + 1
+        //
         y2 += 2 * y + 1;
         y += 1;
         // x changes depending on the comparison of the old and new (x2 + y2) candidates.
+        // The next candidate is always x - 1
+        // (a - 1)^2 = a^2 - 2*a + 1
+        //
         let new_x2: NumberType =  x2 - 2 * x + 1;
         if ((new_x2 + y2) - radius2).abs() < ((x2 + y2) - radius2).abs() {
 

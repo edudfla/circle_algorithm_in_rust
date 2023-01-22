@@ -1,3 +1,7 @@
+//
+// For more info about the format: std::fmt
+// (.rustup/toolchains/stable-x86_64-unknown-linux-gnu/share/doc/rust/html/std/fmt/index.html)
+//
 fn main() {
     print!("{:>3}", "");
     for lower_nibble in 0..16 {
